@@ -13,6 +13,9 @@ export class Course {
     @Column({ type: "text" })
     description: string;
 
+    @Column()
+    likes: number;
+
     @ManyToMany(() => User, (user) => user.courses)
     users: User[];
 }

@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { fa, faker } from "@faker-js/faker";
 import { DataSource, Repository } from "typeorm";
 import { Course } from "../../models/mysql/coures.entity";
 
@@ -14,6 +14,7 @@ function newFunction(userRepo: Repository<Course>) {
         course.push({
             name: faker.company.catchPhrase(),
             description: faker.lorem.paragraph(),
+            likes: faker.number.int({ min: 12, max: 2973 }),
         });
     }
     userRepo.insert(course);
