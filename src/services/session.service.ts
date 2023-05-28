@@ -11,7 +11,7 @@ export class SessionService {
         });
     }
 
-    public async getSession(id: string | undefined): Promise<Session | null> {
+    async getSession(id: string | undefined): Promise<Session | null> {
         if (id === null || !id) return null;
         const session = await SessionService.sessionRepo.findOneBy({
             _id: ObjectId.createFromHexString(id),
@@ -20,18 +20,10 @@ export class SessionService {
         return session;
     }
 
-    public async createSession(email: string): Promise<Session> {
+    async createSession(email: string): Promise<Session> {
         const session = await SessionService.sessionRepo.save({
             email,
         });
         return session;
-    }
-
-    public async validateSession(id: string): Promise<Boolean> {
-        const session = await SessionService.sessionRepo.findOneBy({
-            _id: ObjectId.createFromHexString(id),
-        });
-        if (session === null) return false;
-        return true;
     }
 }

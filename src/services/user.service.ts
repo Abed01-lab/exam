@@ -32,4 +32,8 @@ export class UserService {
     public async getAllUsers(): Promise<User[]> {
         return await UserService.userRepo.find({});
     }
+
+    async getUserByEmail(email: string) {
+        return await UserService.userRepo.findOneBy({ email });
+    }
 }

@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { UserService } from "../services/user.service";
 import { SessionService } from "../services/session.service";
 
@@ -18,5 +18,9 @@ export class UserController {
     public async getAllUsers(req: Request, res: Response) {
         const users = await UserService.prototype.getAllUsers();
         return res.json(users);
+    }
+
+    async getUser(req: Request & any, res: Response) {
+        return res.status(200).json(await UserService.prototype.getUserByEmail(req.user.email));
     }
 }
