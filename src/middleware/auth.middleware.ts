@@ -7,10 +7,10 @@ export class AuthenticationMiddleware {
             return next();
         }
         const cookieSession: string = req.cookies.session;
-        if (!cookieSession) return res.status(401).send();
+        if (!cookieSession) return res.status(401).send(); // No cookie session in the request
         const session = await SessionService.prototype.getSession(cookieSession);
-        if (session == null) return res.status(401).send();
-        req.user = session;
-        next();
+        if (session == null) return res.status(401).send(); // session is removed in the database or does not exist
+        req.user = session; // if session is valid the attach user to server-side context
+        next(); // Go to the requested resourse
     }
 }
