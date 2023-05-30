@@ -12,7 +12,7 @@ export const seedUsers = async (connection: DataSource) => {
         password: process.env.DEV_PASSWORD,
     });
 
-    for (let index = 0; index < 100; index++) {
+    for (let index = 0; index < 100000; index++) {
         userRepo.save({
             email: faker.internet.email(),
             password: faker.internet.userName(),

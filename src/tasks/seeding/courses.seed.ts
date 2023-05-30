@@ -10,7 +10,7 @@ export const seedCourses = async (connection: DataSource) => {
 };
 function newFunction(userRepo: Repository<Course>) {
     const course = [];
-    for (let index = 0; index < 1000; index++) {
+    for (let index = 0; index < 10000; index++) {
         course.push({
             name: faker.company.catchPhrase(),
             description: faker.lorem.paragraph(),
