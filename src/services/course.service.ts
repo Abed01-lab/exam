@@ -19,6 +19,7 @@ export class CourseService {
         return await CourseService.courseRepo
             .createQueryBuilder()
             .where("MATCH(name) AGAINST(:searchTerm)", { searchTerm })
+            .cache(3600000)
             .getMany();
     }
 

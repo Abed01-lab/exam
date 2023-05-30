@@ -11,11 +11,11 @@ export class LoggerMiddleware {
             const endTime: any = new Date();
             responseTime = endTime - startTime;
             LoggerService.prototype.createLog({
-                httpMethod: req.method,
-                httpStatus: res.statusCode,
-                remoteAddr: req.socket.remoteAddress,
-                reqUrl: req.url === "/" ? req.baseUrl : req.url,
-                responseTimeInMs: responseTime,
+                httpMethod: req.method, // request method
+                httpStatus: res.statusCode, // response Status Code
+                remoteAddr: req.socket.remoteAddress, // Where the request is from
+                reqUrl: req.url === "/" ? req.baseUrl : req.url, // the requested URL
+                responseTimeInMs: responseTime, // Resolve time in ms
                 session: await SessionService.prototype.getSession(req.cookies.session),
             });
         });
