@@ -32,7 +32,7 @@ export class CourseService {
             .groupBy("course.id")
             .orderBy("userCount", "DESC")
             .limit(10)
-            .cache(10000)
+            .cache(3600000)
             .getMany();
     }
 
