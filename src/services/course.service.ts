@@ -45,7 +45,7 @@ export class CourseService {
         });
         if (user === null || course === null) return null;
 
-        course.enrollmentCount++;
+        course.likes++;
         user.courses.push(course);
         await queryRunner.startTransaction();
         try {

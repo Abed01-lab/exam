@@ -14,7 +14,7 @@ function newFunction(userRepo: Repository<Course>) {
         course.push({
             name: faker.company.catchPhrase(),
             description: faker.lorem.paragraph(),
-            enrollmentCount: faker.number.int({ min: 12, max: 2973 }),
+            likes: faker.number.int({ min: 12, max: 2973 }),
         });
     }
     userRepo.insert(course);
