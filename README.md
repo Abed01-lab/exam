@@ -57,3 +57,5 @@ This guide will walk you through the steps to set up and use the project.
 To interact with the application, you can use a software like Postman to send HTTP requests to the server.
 
 ## Exam Video
+
+Click here to watch the video: https://www.youtube.com/watch?v=TEnGhlOy7FQ
